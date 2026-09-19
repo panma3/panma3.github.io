@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春暖花开有你旧版杏吧 - 沉浸式浪漫互动社区体验</title>
+    <meta name="description" content="春暖花开有你旧版杏吧，致力于为用户提供温馨、舒适的社交互动环境。回顾经典版本，探索个性化话题、情感交流与趣味互动功能，打造属于你的专属温暖空间。">
+    <meta name="keywords" content="春暖花开有你旧版杏吧, 旧版杏吧, 情感社区, 互动社交, 浪漫聊天">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff7eb3;
+            --secondary-color: #ff758c;
+            --accent-color: #ffb199;
+            --bg-color: #fff0f5;
+            --card-bg: #ffffff;
+            --text-main: #4a4a4a;
+            --text-light: #888888;
+            --shadow: 0 4px 12px rgba(255, 126, 179, 0.15);
+            --radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .header-actions .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 117, 140, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: radial-gradient(circle at center, #fff0f5 0%, #ffe4e1 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px 0 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 126, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .community-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .post-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee;
+        }
+
+        .user-info h4 {
+            font-size: 0.95rem;
+        }
+
+        .user-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .post-content {
+            padding: 20px;
+        }
+
+        .post-text {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .post-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-color);
+        }
+
+        .topic-list li {
+            margin-bottom: 10px;
+        }
+
+        .topic-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .topic-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        .topic-list span {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--radius);
+            margin: 40px auto;
+            max-width: var(--container-width);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.2)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-content p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #ccc;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .community-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>🌸</span> 春暖花开有你旧版杏吧
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">热门话题</a></li>
+                    <li><a href="#">情感树洞</a></li>
+                    <li><a href="#">旧版回忆</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>春暖花开有你旧版杏吧</h1>
+                <p>重温经典互动体验，在温馨的氛围中寻找志同道合的朋友，分享生活的点滴与温暖。</p>
+                <div class="hero-tags">
+                    <span class="tag">#浪漫邂逅</span>
+                    <span class="tag">#情感交流</span>
+                    <span class="tag">#旧版情怀</span>
+                    <span class="tag">#兴趣社区</span>
+                </div>
+                <button class="btn btn-primary" style="padding: 12px 40px; font-size: 1.1rem;">立即开启旅程</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>经典功能，焕新体验</h2>
+                    <p>保留旧版核心乐趣，融入现代化交互设计</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="icon-box">💬</div>
+                        <h3>即时聊天</h3>
+                        <p>低延迟的实时通讯体验，支持文字、表情及图片分享，让沟通更生动。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">❤️</div>
+                        <h3>情感匹配</h3>
+                        <p>基于兴趣与性格的智能推荐算法，帮助你发现更契合的交流对象。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">🎨</div>
+                        <h3>个性化主页</h3>
+                        <p>自定义个人资料与动态展示，打造独一无二的社交名片。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">🔒</div>
+                        <h3>隐私保护</h3>
+                        <p>严格的隐私设置选项，确保你的社交圈子安全、私密且舒适。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="community">
+            <div class="container">
+                <div class="section-title">
+                    <h2>热门动态</h2>
+                    <p>看看大家都在聊些什么</p>
+                </div>
+                <div class="community-layout">
+                    <!-- Feed -->
+                    <div class="feed">
+                        <div class="feed-header">
+                            <h3>最新动态</h3>
+                            <button class="btn btn-outline" style="font-size: 0.9rem; padding: 5px 15px;">查看更多</button>
+                        </div>
+                        
+                        <article class="post-card">
+                            <div class="post-header">
+                                <img src="https://picsum.photos/seed/user1/50/50" alt="Avatar" class="avatar">
+                                <div class="user-info">
+                                    <h4>花开时节</h4>
+                                    <span>2小时前 · 浪漫话题</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p class="post-text">在这个春暖花开的季节，很高兴能在旧版杏吧遇到这么多有趣的朋友。希望能在这里找到更多共鸣！🌸</p>
+                                <img src="https://picsum.photos/seed/flower/800/400" alt="Post Image" class="post-image">
+                            </div>
+                            <div class="post-footer">
+                                <button class="action-btn">👍 128</button>
+                                <button class="action-btn">💬 45</button>
+                                <button class="action-btn">↗ 分享</button>
+                            </div>
+                        </article>
+
+                        <article class="post-card">
+                            <div class="post-header">
+                                <img src="https://picsum.photos/seed/user2/50/50" alt="Avatar" class="avatar">
+                                <div class="user-info">
+                                    <h4>旧时光影</h4>
+                                    <span>5小时前 · 技术交流</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p class="post-text">大家觉得这次更新的UI设计如何？还是更喜欢以前的极简风格呢？欢迎在评论区讨论！</p>
+                            </div>
+                            <div class="post-footer">
+                                <button class="action-btn">👍 89</button>
+                                <button class="action-btn">💬 32</button>
+                                <button class="action-btn">↗ 分享</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="sidebar">
+                        <div class="sidebar-card">
+                            <h4 class="sidebar-title">热门话题榜</h4>
+                            <ul class="topic-list">
+                                <li><a href="#"># 春日野餐指南 <span>2.3w</span></a></li>
+                                <li><a href="#"># 旧版回忆杀 <span>1.8w</span></a></li>
+                                <li><a href="#"># 情感升温技巧 <span>1.2w</span></a></li>
+                                <li><a href="#"># 摄影爱好者 <span>9k</span></a></li>
+                                <li><a href="#"># 音乐分享 <span>7k</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4 class="sidebar-title">活跃用户</h4>
+                            <ul class="topic-list">
+                                <li><a href="#">温暖的小太阳 <span>在线</span></a></li>
+                                <li><a href="#">追风少年 <span>在线</span></a></li>
+                                <li><a href="#">文艺青年 <span>5分钟前</span></a></li>
+                                <li><a href="#">深夜食堂 <span>在线</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h2>准备好相遇了吗？</h2>
+                    <p>春暖花开有你，现在注册即可体验旧版杏吧的温馨氛围，开启你的浪漫社交之旅。</p>
+                    <button class="btn" style="background: white; color: var(--secondary-color); padding: 12px 35px; border-radius: 25px; font-weight: bold; border: none; cursor: pointer;">免费加入社区</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p>春暖花开有你旧版杏吧致力于构建一个健康、积极、温暖的线上社交平台，让每一位用户都能感受到春天的气息。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于旧版</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>社区规范</h4>
+                    <ul>
+                        <li><a href="#">用户行为准则</a></li>
+                        <li><a href="#">内容审核标准</a></li>
+                        <li><a href="#">举报与反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：support@chunnuan.com</li>
+                        <li>客服时间：9:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 春暖花开有你旧版杏吧 版权所有
+            </div>
+        </div>
+    </footer>
+
+</body>
+          </html>
