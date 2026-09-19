@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大旗论坛大全 - 精选网络社区导航与分类索引</title>
+    <meta name="description" content="大旗论坛大全提供全网热门论坛、垂直领域社区及兴趣小组的精准导航。收录游戏、数码、情感、财经、影视等分类，助您快速找到目标交流平台，发现优质内容与同好。">
+    <meta name="keywords" content="大旗论坛大全,论坛导航,网络社区,分类论坛,兴趣社区,论坛索引">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background-color: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 16px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Nav */
+        nav {
+            background-color: white;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+        }
+
+        .nav-item {
+            padding: 12px 0;
+            font-weight: 500;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .nav-item.active, .nav-item:hover {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        /* Main */
+        main {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Categories Grid */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
+        }
+
+        .cat-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .cat-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cat-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .cat-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .cat-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .cat-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Ranking Section */
+        .ranking-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-bottom: 3rem;
+        }
+
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ranking-table th {
+            text-align: left;
+            padding: 15px;
+            background-color: #f8f9fa;
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .ranking-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .rank-num {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #eee;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .rank-1 { background-color: #ffd700; color: #fff; }
+        .rank-2 { background-color: #c0c0c0; color: #fff; }
+        .rank-3 { background-color: #cd7f32; color: #fff; }
+
+        .forum-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .forum-stats {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .forum-tags span {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: #eef2f7;
+            color: var(--text-secondary);
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .search-bar {
+                width: 100%;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .ranking-table th:nth-child(2),
+            .ranking-table td:nth-child(2) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <span>DB</span> 大旗论坛大全
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索感兴趣的论坛或板块...">
+            <button type="button">搜索</button>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-inner">
+        <div class="nav-item active">综合首页</div>
+        <div class="nav-item">热门推荐</div>
+        <div class="nav-item">最新收录</div>
+        <div class="nav-item">特色分类</div>
+        <div class="nav-item">提交收录</div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>发现优质网络社区</h1>
+            <p>大旗论坛大全致力于为您提供最精准的论坛导航服务。无论您是寻找技术交流、兴趣圈子还是生活资讯，这里都有您需要的平台。</p>
+            <a href="#categories" class="cta-btn">开始探索</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories">
+        <div class="section-title">
+            <h2>热门分类导航</h2>
+            <span style="font-size: 0.9rem; color: #666; font-weight: normal;">按领域浏览精选社区</span>
+        </div>
+        
+        <div class="category-grid">
+            <!-- Gaming -->
+            <article class="category-card">
+                <div class="cat-icon">🎮</div>
+                <h3 class="cat-title">游戏竞技</h3>
+                <p class="cat-desc">涵盖PC游戏、手游、主机游戏攻略、电竞资讯及玩家交流社区。</p>
+                <a href="#" class="cat-link">进入游戏专区 &rarr;</a>
+            </article>
+
+            <!-- Tech -->
+            <article class="category-card">
+                <div class="cat-icon">💻</div>
+                <h3 class="cat-title">科技数码</h3>
+                <p class="cat-desc">计算机技术、硬件评测、软件开发、互联网行业讨论及极客文化。</p>
+                <a href="#" class="cat-link">进入科技专区 &rarr;</a>
+            </article>
+
+            <!-- Finance -->
+            <article class="category-card">
+                <div class="cat-icon">📈</div>
+                <h3 class="cat-title">财经商业</h3>
+                <p class="cat-desc">股票投资、基金理财、宏观经济、创业故事及企业管理经验分享。</p>
+                <a href="#" class="cat-link">进入财经专区 &rarr;</a>
+            </article>
+
+            <!-- Entertainment -->
+            <article class="category-card">
+                <div class="cat-icon">🎬</div>
+                <h3 class="cat-title">娱乐影视</h3>
+                <p class="cat-desc">电影电视剧讨论、明星动态、综艺八卦、动漫二次元文化。</p>
+                <a href="#" class="cat-link">进入娱乐专区 &rarr;</a>
+            </article>
+
+            <!-- Lifestyle -->
+            <article class="category-card">
+                <div class="cat-icon">🌿</div>
+                <h3 class="cat-title">生活健康</h3>
+                <p class="cat-desc">美食烹饪、旅游出行、养生保健、家居装修及情感心理咨询。</p>
+                <a href="#" class="cat-link">进入生活专区 &rarr;</a>
+            </article>
+
+            <!-- Education -->
+            <article class="category-card">
+                <div class="cat-icon">📚</div>
+                <h3 class="cat-title">教育学习</h3>
+                <p class="cat-desc">考研考公、外语学习、职场技能提升、学术论文交流及留学移民。</p>
+                <a href="#" class="cat-link">进入教育专区 &rarr;</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Top Forums Section -->
+    <section class="ranking-section">
+        <div class="section-title">
+            <h2>本月热门论坛 TOP 10</h2>
+        </div>
+        <table class="ranking-table">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">排名</th>
+                    <th>论坛名称</th>
+                    <th style="width: 150px;">主要标签</th>
+                    <th>简介与特点</th>
+                    <th style="width: 100px;">热度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="rank-num rank-1">1</span></td>
+                    <td><a href="#" class="forum-name">极客公园</a></td>
+                    <td class="forum-tags"><span>科技</span><span>创新</span></td>
+                    <td>关注前沿科技动态，连接创业者与投资人的知名科技媒体社区。</td>
+                    <td class="forum-stats">980万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num rank-2">2</span></td>
+                    <td><a href="#" class="forum-name">NGA玩家社区</a></td>
+                    <td class="forum-tags"><span>游戏</span><span>电竞</span></td>
+                    <td>专注于游戏讨论，拥有庞大的玩家群体和专业的游戏攻略板块。</td>
+                    <td class="forum-stats">850万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num rank-3">3</span></td>
+                    <td><a href="#" class="forum-name">虎扑</a></td>
+                    <td class="forum-tags"><span>体育</span><span>篮球</span></td>
+                    <td>中国领先的体育互联网社区，涵盖篮球、足球及各类体育资讯。</td>
+                    <td class="forum-stats">720万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num">4</span></td>
+                    <td><a href="#" class="forum-name">知乎</a></td>
+                    <td class="forum-tags"><span>问答</span><span>知识</span></td>
+                    <td>中文互联网高质量的问答社区，聚集各行各业的专业人士。</td>
+                    <td class="forum-stats">650万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num">5</span></td>
+                    <td><a href="#" class="forum-name">豆瓣</a></td>
+                    <td class="forum-tags"><span>书籍</span><span>电影</span></td>
+                    <td>基于兴趣的小组社交平台，拥有丰富的书影音评分与讨论。</td>
+                    <td class="forum-stats">580万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num">6</span></td>
+                    <td><a href="#" class="forum-name">天涯社区</a></td>
+                    <td class="forum-tags"><span>杂谈</span><span>历史</span></td>
+                    <td>中国互联网早期具有影响力的综合社区，以深度杂谈著称。</td>
+                    <td class="forum-stats">450万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num">7</span></td>
+                    <td><a href="#" class="forum-name">汽车之家</a></td>
+                    <td class="forum-tags"><span>汽车</span><span>评测</span></td>
+                    <td>国内最大的汽车垂直网站，提供购车、用车及养车全流程服务。</td>
+                    <td class="forum-stats">420万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num">8</span></td>
+                    <td><a href="#" class="forum-name">知乎</a></td>
+                    <td class="forum-tags"><span>问答</span><span>知识</span></td>
+                    <td>中文互联网高质量的问答社区，聚集各行各业的专业人士。</td>
+                    <td class="forum-stats">390万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num">9</span></td>
+                    <td><a href="#" class="forum-name">小红书</a></td>
+                    <td class="forum-tags"><span>种草</span><span>生活</span></td>
+                    <td>年轻人的生活方式平台，分享购物、旅行、美食等生活经验。</td>
+                    <td class="forum-stats">360万</td>
+                </tr>
+                <tr>
+                    <td><span class="rank-num">10</span></td>
+                    <td><a href="#" class="forum-name">卡饭安全网</a></td>
+                    <td class="forum-tags"><span>安全</span><span>软件</span></td>
+                    <td>专注于网络安全、病毒查杀及软件使用的专业技术论坛。</td>
+                    <td class="forum-stats">210万</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Submission CTA -->
+    <section style="background-color: #eef2f7; padding: 40px; border-radius: 12px; text-align: center;">
+        <h2 style="margin-bottom: 15px; color: var(--primary-color);">发现优质论坛？</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 25px;">如果您运营着优质的社区或论坛，欢迎通过下方链接提交收录申请，让更多用户找到您。</p>
+        <a href="#" class="cta-btn" style="background-color: var(--primary-color);">提交收录</a>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-col">
+            <h3>关于大旗论坛大全</h3>
+            <p style="font-size: 0.9rem; line-height: 1.8;">大旗论坛大全是一个致力于连接互联网用户与优质社区的导航平台。我们通过人工审核与智能分类，为您筛选最具价值的网络论坛。</p>
+        </div>
+        <div class="footer-col">
+            <h3>快速链接</h3>
+            <ul>
+                <li><a href="#">网站地图</a></li>
+                <li><a href="#">最新收录</a></li>
+                <li><a href="#">热门排行</a></li>
+                <li><a href="#">帮助中心</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>热门分类</h3>
+            <ul>
+                <li><a href="#">游戏竞技</a></li>
+                <li><a href="#">科技数码</a></li>
+                <li><a href="#">财经商业</a></li>
+                <li><a href="#">生活健康</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>联系我们</h3>
+            <ul>
+                <li><a href="#">商务合作</a></li>
+                <li><a href="#">意见反馈</a></li>
+                <li><a href="#">侵权申诉</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 大旗论坛大全 版权所有. 本站仅提供导航服务，不存储任何论坛内容。</p>
+    </div>
+</footer>
+
+</body>
+</html>
