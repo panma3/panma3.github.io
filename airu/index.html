@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="皑如网提供高品质的文学、艺术与自然影像内容，探索洁白纯净之美，包含诗歌赏析、雪景摄影指南、极简主义设计灵感及心理健康相关文章。">
+    <meta name="keywords" content="皑如,文学艺术,雪景摄影,极简设计,心理健康,洁白美学">
+    <title>皑如-纯净美学与自然影像的数字空间</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-main: #2c2c2c;
+            --text-secondary: #666;
+            --accent-color: #e0e0e0;
+            --highlight-color: #f5f5f5;
+            --border-color: #eeeeee;
+            --font-serif: "Noto Serif SC", "Songti SC", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #999;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(253, 253, 253, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, #f0f0f0 0%, #ffffff 70%);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            letter-spacing: 0.05em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            border: 1px solid var(--text-main);
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--text-main);
+            color: #fff;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Cards */
+        .card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            background-color: var(--highlight-color);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #999;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .card:hover .read-more::after {
+            margin-left: 10px;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: var(--text-main);
+            color: #fff;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Feature List */
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .feature-item {
+            flex: 1 1 300px;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #999;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            background-color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-menu {
+                display: none; /* Simplified for mobile, ideally a hamburger menu */
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+
+            .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">皑如</a>
+            <nav class="nav-menu">
+                <a href="#art">艺术影像</a>
+                <a href="#literature">文学赏析</a>
+                <a href="#lifestyle">生活方式</a>
+                <a href="#about">关于我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>皑如雪，净如心</h1>
+                <p>探索自然界的洁白之美，感受文字背后的纯净力量。皑如致力于为您提供高质量的艺术内容与心灵栖息地。</p>
+                <a href="#art" class="cta-button">开始探索</a>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="container">
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">❄️</div>
+                    <h3>自然影像</h3>
+                    <p>收录全球顶级雪景与纯净自然风光摄影作品，捕捉冬日静谧。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📖</div>
+                    <h3>文学赏析</h3>
+                    <p>深度解析经典诗歌与散文，品味文字如雪般洁白无瑕的意境。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>极简设计</h3>
+                    <p>分享少即是多的设计理念，为您打造清爽、高效的空间美学。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Art Gallery Section -->
+        <section id="art">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选影像</h2>
+                    <p>捕捉光影中的纯粹瞬间</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-image">
+                            <!-- Placeholder representing snow landscape -->
+                            <img src="https://picsum.photos/seed/snow1/400/300" alt="冬日雪景摄影作品">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">自然风光</span>
+                            <h3 class="card-title">北境的静谧：极地雪原摄影指南</h3>
+                            <p class="card-excerpt">如何在寒冷环境中捕捉雪景的层次感与光影细节？</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <!-- Placeholder representing white texture -->
+                            <img src="https://picsum.photos/seed/white2/400/300" alt="极简白色纹理设计">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">设计灵感</span>
+                            <h3 class="card-title">白色纹理在UI设计中的应用</h3>
+                            <p class="card-excerpt">利用留白与纯白色调提升界面的呼吸感与高级感。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <!-- Placeholder representing clouds -->
+                            <img src="https://picsum.photos/seed/clouds3/400/300" alt="云层与天空">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">摄影技巧</span>
+                            <h3 class="card-title">云层摄影：如何拍出"皑如"质感</h3>
+                            <p class="card-excerpt">控制曝光与白平衡，还原天空最纯净的蓝色与白色。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <p class="quote-text">"皑如山雪，朗若日月。纯洁而高洁，是自然界赋予人类最美好的隐喻。"</p>
+                <p class="quote-author">—— 皑如专栏作家</p>
+            </div>
+        </section>
+
+        <!-- Literature Section -->
+        <section id="literature">
+            <div class="container">
+                <div class="section-header">
+                    <h2>文学赏析</h2>
+                    <p>文字构筑的纯净世界</p>
+                </div>
+                <div class="grid-4">
+                    <article class="card">
+                        <div class="card-content">
+                            <span class="card-tag">古诗词</span>
+                            <h3 class="card-title">古诗中的"皑"字意象解析</h3>
+                            <p class="card-excerpt">从《诗经》到唐诗，探索古人笔下洁白、高洁的象征意义。</p>
+                            <a href="#" class="read-more">查看</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-content">
+                            <span class="card-tag">散文</span>
+                            <h3 class="card-title">冬日独白：内心的皑皑白雪</h3>
+                            <p class="card-excerpt">在喧嚣的城市中寻找内心的宁静，像雪一样沉淀与净化。</p>
+                            <a href="#" class="read-more">查看</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-content">
+                            <span class="card-tag">现代诗</span>
+                            <h3 class="card-title">雪落无声：现代诗选读</h3>
+                            <p class="card-excerpt">当代诗人如何用极简的语言描绘宏大的自然景象。</p>
+                            <a href="#" class="read-more">查看</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-content">
+                            <span class="card-tag">随笔</span>
+                            <h3 class="card-title">生活美学：保持心灵的洁白</h3>
+                            <p class="card-excerpt">在快节奏生活中，如何通过极简主义保持精神的纯粹。</p>
+                            <a href="#" class="read-more">查看</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lifestyle Section -->
+        <section id="lifestyle">
+            <div class="container">
+                <div class="section-header">
+                    <h2>生活方式</h2>
+                    <p>构建纯净的生活秩序</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/clean1/400/300" alt="极简家居环境">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">家居</span>
+                            <h3 class="card-title">打造"零杂物"的极简客厅</h3>
+                            <p class="card-excerpt">收纳技巧与色彩搭配，让空间回归纯粹。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/yoga/400/300" alt="瑜伽冥想">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">健康</span>
+                            <h3 class="card-title">冬日冥想：净化思绪</h3>
+                            <p class="card-excerpt">适合寒冷季节的呼吸练习，提升身心免疫力。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/coffee/400/300" alt="热饮咖啡">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">饮品</span>
+                            <h3 class="card-title">一杯白咖啡的治愈时刻</h3>
+                            <p class="card-excerpt">探索不同烘焙度的白咖啡带来的味觉体验。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>皑如</h4>
+                    <p style="color:var(--text-secondary); font-size:0.9rem;">致力于传播纯净美学与自然文化，为您提供一个心灵的避风港。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#art">自然影像</a></li>
+                        <li><a href="#literature">文学赏析</a></li>
+                        <li><a href="#lifestyle">生活方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">编辑团队</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 皑如网. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
