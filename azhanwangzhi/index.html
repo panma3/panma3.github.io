@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A站 (AcFun) - 中国弹幕视频分享网站，提供二次元文化、动漫、游戏、娱乐资讯及高清视频内容。访问A站官网，体验独特的弹幕互动乐趣。">
+    <meta name="keywords" content="a站网址,A站,AcFun,弹幕视频,二次元,动漫,视频网站">
+    <title>A站网址-AcFun弹幕视频分享网站官网</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --a-red: #FF4757;
+            --a-dark: #2F3542;
+            --a-black: #1E272E;
+            --a-gray: #747D8C;
+            --bg-body: #F1F2F6;
+            --bg-card: #FFFFFF;
+            --text-main: #2F3542;
+            --text-sub: #747D8C;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        .site-header {
+            background-color: var(--a-black);
+            color: #fff;
+            height: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--a-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: #dcdcdc;
+            font-size: 15px;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--a-red);
+            border-bottom: 2px solid var(--a-red);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-login {
+            background-color: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            border-color: var(--a-red);
+            color: var(--a-red);
+        }
+
+        .btn-register {
+            background-color: var(--a-red);
+            border: none;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #2F3542 0%, #1E272E 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/acfunhero/1200/400.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #dcdcdc;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* 内容区 */
+        .main-content {
+            padding: 40px 0;
+            min-height: 500px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--a-red);
+            padding-left: 15px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--a-black);
+        }
+
+        .section-more {
+            color: var(--a-gray);
+            font-size: 14px;
+        }
+
+        .section-more:hover {
+            color: var(--a-red);
+        }
+
+        /* 视频网格 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .video-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #ddd;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .card-author {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #eee;
+        }
+
+        /* 特色功能区 */
+        .features-section {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .feature-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--a-dark);
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        /* 热门分区 */
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .channel-item {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .channel-item:hover {
+            border-color: var(--a-red);
+            color: var(--a-red);
+        }
+
+        .channel-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .channel-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            background-color: var(--a-black);
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--a-red);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .channel-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Mobile Menu Placeholder */
+            }
+            .header-actions {
+                display: none;
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-section {
+                padding: 20px;
+            }
+            .channel-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--a-red)">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <span>A站</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">番剧</a>
+                <a href="#">视频</a>
+                <a href="#">动画</a>
+                <a href="#">国创</a>
+                <a href="#">游戏</a>
+                <a href="#">音乐</a>
+                <a href="#">舞蹈</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-login">登录</button>
+                <button class="btn-register">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">AcFun 弹幕视频网站</h1>
+            <p class="hero-desc">这里有最有趣的二次元内容，最活跃的弹幕互动，以及属于你的专属创作空间。</p>
+            <div class="hero-tags">
+                <span class="tag">动漫番剧</span>
+                <span class="tag">鬼畜调音</span>
+                <span class="tag">Vlog生活</span>
+                <span class="tag">硬核科技</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container main-content">
+        
+        <!-- 热门推荐 -->
+        <section class="section-header">
+            <h2 class="section-title">热门推荐</h2>
+            <a href="#" class="section-more">更多 &gt;</a>
+        </section>
+
+        <div class="video-grid">
+            <!-- 卡片 1 -->
+            <article class="video-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/ac1/400/225" alt="视频封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">【全弹幕】新番速递：2024年秋季番剧开播指南</h3>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="https://picsum.photos/seed/u1/20/20" class="avatar" alt="UP主头像">
+                            <span>AC运营组</span>
+                        </div>
+                        <span>12.5万次播放</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 2 -->
+            <article class="video-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/ac2/400/225" alt="视频封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">深度解析：为什么A站依然是二次元文化的圣地？</h3>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="https://picsum.photos/seed/u2/20/20" class="avatar" alt="UP主头像">
+                            <span>二次元观察</span>
+                        </div>
+                        <span>8.2万次播放</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 3 -->
+            <article class="video-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/ac3/400/225" alt="视频封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">【生活】周末探店：藏在城市角落里的复古游戏厅</h3>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="https://picsum.photos/seed/u3/20/20" class="avatar" alt="UP主头像">
+                            <span>生活家</span>
+                        </div>
+                        <span>5.6万次播放</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 4 -->
+            <article class="video-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/ac4/400/225" alt="视频封面">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">【鬼畜】当你的老板开始听二次元神曲</h3>
+                    <div class="card-meta">
+                        <div class="card-author">
+                            <img src="https://picsum.photos/seed/u4/20/20" class="avatar" alt="UP主头像">
+                            <span>鬼畜全明星</span>
+                        </div>
+                        <span>20.1万次播放</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- 网站特色 -->
+        <section class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">A站特色</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">💬</span>
+                    <h3 class="feature-name">实时弹幕</h3>
+                    <p class="feature-desc">在观看视频时与千万UP主和观众实时互动，吐槽、安利、找同好。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <h3 class="feature-name">创作社区</h3>
+                    <p class="feature-desc">支持投稿视频、漫画、专栏，提供强大的创作工具和展示平台。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎮</span>
+                    <h3 class="feature-name">游戏中心</h3>
+                    <p class="feature-desc">汇集独立游戏、手游攻略、电竞资讯，打造全方位游戏娱乐体验。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🤝</span>
+                    <h3 class="feature-name">用户公约</h3>
+                    <p class="feature-desc">倡导绿色健康的社区环境，共同维护清朗的二次元网络空间。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 频道分类 -->
+        <section class="section-header">
+            <h2 class="section-title">热门分区</h2>
+        </section>
+        <div class="channel-grid">
+            <div class="channel-item">
+                <div class="channel-icon">🎬</div>
+                <div class="channel-name">影视</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">📺</div>
+                <div class="channel-name">综艺</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">📺</div>
+                <div class="channel-name">动画</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">🎵</div>
+                <div class="channel-name">音乐</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">💃</div>
+                <div class="channel-name">舞蹈</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">🎮</div>
+                <div class="channel-name">游戏</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">🚗</div>
+                <div class="channel-name">汽车</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">🔬</div>
+                <div class="channel-name">科技</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">📚</div>
+                <div class="channel-name">知识</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">🍳</div>
+                <div class="channel-name">美食</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">⚽</div>
+                <div class="channel-name">运动</div>
+            </div>
+            <div class="channel-item">
+                <div class="channel-icon">🛒</div>
+                <div class="channel-name">购物</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>AcFun</h2>
+                    <p>中国领先的弹幕视频网站，致力于为用户提供有趣、有用、有爱的视频内容。在这里，每一个创意都能被看见。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">社区公约</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">官方社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023-2024 AcFun 弹幕视频网站 版权所有. 本页面为静态演示页面，非A站官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+              </html>
