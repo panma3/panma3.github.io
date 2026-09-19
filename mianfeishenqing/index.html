@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费申请试用装平台，提供美妆护肤、家居生活、数码电子等品牌的官方试用装领取服务。真实用户评价、领取攻略及品牌官方渠道查询，助您低成本体验优质产品。">
+    <meta name="keywords" content="免费申请试用装,试用装领取,美妆试用,新品试用,品牌体验官">
+    <title>免费申请试用装-正品品牌官方试用装领取与体验指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --primary-hover: #fa5252;
+            --secondary-color: #4ecdc4;
+            --text-dark: #2d3436;
+            --text-gray: #636e72;
+            --bg-light: #f7f9fc;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 16px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0 20px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px 0 0 50px;
+        }
+
+        .search-box button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #3dbdb4;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .cat-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Featured List */
+        .featured {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab.active, .filter-tab:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .offer-card {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: var(--white);
+            transition: box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .offer-img {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 107, 107, 0.9);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tag.new {
+            background: var(--secondary-color);
+        }
+
+        .offer-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .offer-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .offer-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .offer-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .stock-info {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stock-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+        }
+
+        .stock-dot.low {
+            background-color: #f1c40f;
+        }
+
+        .stock-dot.out {
+            background-color: #e74c3c;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 60px 0;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .guide-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-content p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .steps-list {
+            counter-reset: step;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 25px;
+        }
+
+        .step-item::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+        }
+
+        .step-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .step-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .guide-image {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .guide-image img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-gray);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            color: #b2bec3;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.9rem;
+            color: #b2bec3;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 0.85rem;
+            color: #636e72;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .search-box input {
+                width: 100%;
+                margin-bottom: 10px;
+                border-radius: 50px;
+            }
+
+            .search-box button {
+                width: 100%;
+                border-radius: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                <span>试用派</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">美妆护肤</a>
+                <a href="#">家居生活</a>
+                <a href="#">数码电子</a>
+                <a href="#">食品健康</a>
+                <a href="#">母婴用品</a>
+            </nav>
+            <a href="#" class="btn-cta">立即申请</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>免费申请试用装，体验大牌品质</h1>
+                <p>汇聚全球数百个品牌的官方试用装资源，支持免费领取、包邮到家。用最小的成本，体验最优质的产品。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索品牌（如：兰蔻、欧莱雅、SK-II）...">
+                    <button>搜索试用</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="container">
+                <div class="section-title">
+                    <h2>热门试用分类</h2>
+                    <p>按需选择，快速找到您感兴趣的产品类别</p>
+                </div>
+                <div class="cat-grid">
+                    <div class="cat-card">
+                        <span class="cat-icon">💄</span>
+                        <h3>美妆护肤</h3>
+                        <p>面霜、精华、彩妆等</p>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🏠</span>
+                        <h3>家居清洁</h3>
+                        <p>洗衣液、除菌剂、清洁剂</p>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">📱</span>
+                        <h3>数码科技</h3>
+                        <p>耳机、配件、小家电</p>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🍜</span>
+                        <h3>食品健康</h3>
+                        <p>零食、保健品、饮料</p>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🧸</span>
+                        <h3>母婴用品</h3>
+                        <p>纸尿裤、洗护、玩具</p>
+                    </div>
+                    <div class="cat-card">
+                        <span class="cat-icon">🧴</span>
+                        <h3>个人护理</h3>
+                        <p>洗发水、沐浴露、牙膏</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured">
+            <div class="container">
+                <div class="list-header">
+                    <h2>最新免费试用</h2>
+                    <div class="filter-tabs">
+                        <div class="filter-tab active">全部</div>
+                        <div class="filter-tab">即将结束</div>
+                        <div class="filter-tab">新品上市</div>
+                    </div>
+                </div>
+                <div class="offer-grid">
+                    <article class="offer-card">
+                        <div class="offer-img">
+                            <span class="tag new">新品</span>
+                            <img src="https://picsum.photos/seed/makeup/400/300" alt="神仙水试用装">
+                        </div>
+                        <div class="offer-content">
+                            <div class="brand-name">资生堂</div>
+                            <h3 class="offer-title">SK-II 神仙水精华试用装 5ml</h3>
+                            <p class="offer-desc">体验肌肤焕变奇迹，深层补水，改善暗沉。适合所有肤质，限量免费领取。</p>
+                            <div class="offer-footer">
+                                <span class="stock-info"><span class="stock-dot"></span>库存充足</span>
+                                <a href="#" class="btn-cta" style="padding: 6px 16px; font-size: 0.9rem;">申请</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="offer-card">
+                        <div class="offer-img">
+                            <span class="tag">限时</span>
+                            <img src="https://picsum.photos/seed/laundry/400/300" alt="洗衣液试用">
+                        </div>
+                        <div class="offer-content">
+                            <div class="brand-name">蓝月亮</div>
+                            <h3 class="offer-title">内衣专用洗衣液 50ml 试用装</h3>
+                            <p class="offer-desc">深层洁净，抑菌除螨。温和配方，呵护娇嫩肌肤，让衣物清新留香。</p>
+                            <div class="offer-footer">
+                                <span class="stock-info"><span class="stock-dot low"></span>仅剩50份</span>
+                                <a href="#" class="btn-cta" style="padding: 6px 16px; font-size: 0.9rem;">申请</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="offer-card">
+                        <div class="offer-img">
+                            <span class="tag">新品</span>
+                            <img src="https://picsum.photos/seed/tech/400/300" alt="蓝牙耳机">
+                        </div>
+                        <div class="offer-content">
+                            <div class="brand-name">漫步者</div>
+                            <h3 class="offer-title">X3 蓝牙耳机 体验版</h3>
+                            <p class="offer-desc">主动降噪，超长续航。全新音质体验，点击申请即可免费试用。</p>
+                            <div class="offer-footer">
+                                <span class="stock-info"><span class="stock-dot"></span>库存充足</span>
+                                <a href="#" class="btn-cta" style="padding: 6px 16px; font-size: 0.9rem;">申请</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="offer-card">
+                        <div class="offer-img">
+                            <img src="https://picsum.photos/seed/soap/400/300" alt="香皂试用">
+                        </div>
+                        <div class="offer-content">
+                            <div class="brand-name">多芬</div>
+                            <h3 class="offer-title">身体磨砂膏 30g 试用装</h3>
+                            <p class="offer-desc">温和去除死皮，唤醒肌肤嫩滑感。送礼自用两相宜，免费索取。</p>
+                            <div class="offer-footer">
+                                <span class="stock-info"><span class="stock-dot out"></span>已抢光</span>
+                                <a href="#" class="btn-cta" style="padding: 6px 16px; font-size: 0.9rem; background:#ccc; cursor:not-allowed;">已结束</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="offer-card">
+                        <div class="offer-img">
+                            <span class="tag new">新品</span>
+                            <img src="https://picsum.photos/seed/fruit/400/300" alt="水果礼盒">
+                        </div>
+                        <div class="offer-content">
+                            <div class="brand-name">每日鲜语</div>
+                            <h3 class="offer-title">进口草莓礼盒 1盒体验装</h3>
+                            <p class="offer-desc">精选优质草莓，现摘现发。新鲜直达舌尖，点击免费尝鲜。</p>
+                            <div class="offer-footer">
+                                <span class="stock-info"><span class="stock-dot"></span>库存充足</span>
+                                <a href="#" class="btn-cta" style="padding: 6px 16px; font-size: 0.9rem;">申请</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="offer-card">
+                        <div class="offer-img">
+                            <span class="tag">限时</span>
+                            <img src="https://picsum.photos/seed/pet/400/300" alt="宠物食品">
+                        </div>
+                        <div class="offer-content">
+                            <div class="brand-name">皇家</div>
+                            <h3 class="offer-title">成猫粮 50g 试吃装</h3>
+                            <p class="offer-desc">科学配方，呵护爱宠健康。让您的猫咪体验全新口味。</p>
+                            <div class="offer-footer">
+                                <span class="stock-info"><span class="stock-dot low"></span>仅剩30份</span>
+                                <a href="#" class="btn-cta" style="padding: 6px 16px; font-size: 0.9rem;">申请</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section">
+            <div class="container">
+                <div class="guide-grid">
+                    <div class="guide-content">
+                        <h2>如何成功领取免费试用装？</h2>
+                        <p>我们致力于为用户提供最便捷的试用装申请渠道。遵循以下三个简单步骤，即可将心仪的产品免费带回家。</p>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <h4>1. 筛选与选择</h4>
+                                <p>在首页分类或搜索栏中，找到您感兴趣的品牌和产品，查看详细信息（规格、适用人群、领取条件）。</p>
+                            </div>
+                            <div class="step-item">
+                                <h4>2. 填写申请信息</h4>
+                                <p>点击“申请”按钮，根据指引填写真实的收货地址、联系方式及简单的产品使用需求。</p>
+                            </div>
+                            <div class="step-item">
+                                <h4>3. 等待寄送</h4>
+                                <p>审核通过后，品牌方将在 3-7 个工作日内安排发货，您将收到完整的试用装产品。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="guide-image">
+                        <img src="https://picsum.photos/seed/guide/600/400" alt="申请流程示意图">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题 (FAQ)</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">领取试用装需要支付费用吗？</div>
+                        <div class="faq-answer">
+                            不需要。我们提供的所有试用装均为品牌官方免费赠送，您只需承担极低额度的运费（部分品牌包邮）。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">多久能收到试用装？</div>
+                        <div class="faq-answer">
+                            一般情况下，审核通过后 3-7 个工作日内发货，具体时间取决于品牌方的库存和物流安排。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果申请失败怎么办？</div>
+                        <div class="faq-answer">
+                            申请失败通常是因为库存已满或您填写的资料不符合品牌要求。建议您关注我们的“新品上市”栏目，或稍后再次尝试。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何保证试用装的真伪？</div>
+                        <div class="faq-answer">
+                            我们所有合作品牌均为官方授权渠道，确保您收到的每一份试用装均为正品。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>试用派</h4>
+                    <p>连接消费者与品牌的最优试用平台。我们致力于帮助消费者低成本体验优质产品，同时也为品牌提供真实的市场反馈渠道。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">品牌入驻</a></li>
+                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">美妆护肤</a></li>
+                        <li><a href="#">家居清洁</a></li>
+                        <li><a href="#">数码电子</a></li>
+                        <li><a href="#">母婴用品</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">客服邮箱: support@shiyongpai.com</a></li>
+                        <li><a href="#">合作咨询: bd@shiyongpai.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 试用派平台 版权所有. 本站所有链接均指向品牌官方网站或正规申请渠道。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 模拟搜索框交互
+        const searchInput = document.querySelector('.search-box input');
+        const searchBtn = document.querySelector('.search-box button');
+        
+        function handleSearch() {
+            if(searchInput.value.trim() !== "") {
+                alert("正在跳转至搜索结果页...");
+            }
+        }
+
+        searchBtn.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+
+        // 分类卡片点击反馈
+        document.querySelectorAll('.cat-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // 实际项目中这里会进行页面跳转或筛选
+                console.log("跳转到分类：" + card.querySelector('h3').innerText);
+            });
+        });
+    </script>
+</body>
+  </html>
