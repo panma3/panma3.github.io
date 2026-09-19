@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新百伦论坛 - 资深跑者经验分享与装备评测社区</title>
+    <meta name="description" content="新百伦论坛汇聚资深跑者，提供跑步装备评测、运动科学知识、马拉松训练计划及线下活动交流，打造专业且活跃的跑步爱好者社区。">
+    <meta name="keywords" content="新百伦论坛,跑步装备,马拉松训练,跑鞋评测,运动健康,新百伦">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #00a8e8;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #008cc2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004d80 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Forum Sections */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e1e4e8;
+        }
+
+        .section-title h2 {
+            font-size: 20px;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .section-more a {
+            color: var(--accent-color);
+        }
+
+        .forum-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .forum-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+
+        .forum-item:last-child {
+            border-bottom: none;
+        }
+
+        .forum-item:hover {
+            background-color: #fafbfc;
+        }
+
+        .forum-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eef5fa;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .forum-info {
+            flex: 1;
+        }
+
+        .forum-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .forum-info p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .forum-stats {
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-secondary);
+            min-width: 100px;
+        }
+
+        .forum-stats span {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .tag-hot { background-color: #ffebee; color: #d32f2f; }
+        .tag-new { background-color: #e3f2fd; color: #1976d2; }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .hot-post-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .hot-post-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-post-list a {
+            font-size: 14px;
+            color: var(--text-main);
+            display: block;
+            line-height: 1.4;
+        }
+
+        .hot-post-list a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .hot-post-list .hot-num {
+            color: #999;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .hot-post-list .tag-hot { margin-right: 5px; }
+
+        /* Latest Topics */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .topic-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .topic-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .topic-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .topic-title:hover {
+            color: var(--accent-color);
+        }
+
+        .topic-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .topic-footer .user {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .guide-card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            transition: all 0.2s;
+        }
+
+        .guide-card:hover {
+            border-color: var(--accent-color);
+            background-color: #f0f9ff;
+        }
+
+        .guide-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .guide-card h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .guide-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .guide-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .header-inner {
+                justify-content: center;
+            }
+            .user-actions {
+                position: absolute;
+                right: 20px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>↻</span> 新百伦论坛
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">跑鞋评测</a>
+                <a href="#">马拉松训练</a>
+                <a href="#">装备交流</a>
+                <a href="#">线下活动</a>
+                <a href="#">新手指南</a>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>与百万跑者一起探索跑步的乐趣</h1>
+            <p>专注于新百伦及相关跑步装备的专业社区。分享训练心得，评测最新鞋款，制定科学的训练计划。</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>128,500+</h3>
+                    <p>注册会员</p>
+                </div>
+                <div class="stat-item">
+                    <h3>45,200+</h3>
+                    <p>跑步帖子</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1,200+</h3>
+                    <p>活动举办</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-grid">
+            <!-- Main Content: Forum Categories -->
+            <main>
+                <section class="forum-section">
+                    <div class="section-title">
+                        <h2>热门版块</h2>
+                        <a href="#" class="section-more">查看全部 &rarr;</a>
+                    </div>
+                    <div class="forum-list">
+                        <div class="forum-item">
+                            <div class="forum-icon">👟</div>
+                            <div class="forum-info">
+                                <h3>跑鞋装备交流 <span class="tag tag-hot">热门</span></h3>
+                                <p>讨论 New Balance 全系鞋款，晒单对比，尺码指南及保养技巧。</p>
+                            </div>
+                            <div class="forum-stats">
+                                <span>今日: 3,420</span>
+                                <span>主题: 892,100</span>
+                            </div>
+                        </div>
+                        <div class="forum-item">
+                            <div class="forum-icon">🏃</div>
+                            <div class="forum-info">
+                                <h3>马拉松训练计划 <span class="tag tag-new">最新</span></h3>
+                                <p>从5公里到全马，分享月度训练计划、配速心得与伤病康复。</p>
+                            </div>
+                            <div class="forum-stats">
+                                <span>今日: 1,850</span>
+                                <span>主题: 456,200</span>
+                            </div>
+                        </div>
+                        <div class="forum-item">
+                            <div class="forum-icon">🥤</div>
+                            <div class="forum-info">
+                                <h3>营养补给与饮食</h3>
+                                <p>跑步前中后的能量补充策略，碳水循环与体脂管理经验。</p>
+                            </div>
+                            <div class="forum-stats">
+                                <span>今日: 920</span>
+                                <span>主题: 123,500</span>
+                            </div>
+                        </div>
+                        <div class="forum-item">
+                            <div class="forum-icon">⛺</div>
+                            <div class="forum-info">
+                                <h3>越野跑与户外</h3>
+                                <p>山地越野、公路跑及户外露营装备推荐与路线分享。</p>
+                            </div>
+                            <div class="forum-stats">
+                                <span>今日: 650</span>
+                                <span>主题: 98,400</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Latest Topics -->
+                <section class="topics-section" style="margin-top: 30px;">
+                    <div class="section-title">
+                        <h2>最新动态</h2>
+                        <a href="#" class="section-more">进入讨论区 &rarr;</a>
+                    </div>
+                    <div class="topics-grid">
+                        <article class="topic-card">
+                            <div class="topic-meta">
+                                <span class="tag tag-hot">装备</span>
+                                <span>2小时前</span>
+                            </div>
+                            <h3 class="topic-title"><a href="#">深度评测：New Balance FuelCell™ 跑鞋实战体验</a></h3>
+                            <div class="topic-footer">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <span>跑酷大师</span>
+                                </div>
+                                <span>回复 45</span>
+                            </div>
+                        </article>
+                        <article class="topic-card">
+                            <div class="topic-meta">
+                                <span class="tag tag-new">训练</span>
+                                <span>4小时前</span>
+                            </div>
+                            <h3 class="topic-title"><a href="#">新手必看：如何制定第一份10公里训练计划？</a></h3>
+                            <div class="topic-footer">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <span>晨跑者小王</span>
+                                </div>
+                                <span>回复 128</span>
+                            </div>
+                        </article>
+                        <article class="topic-card">
+                            <div class="topic-meta">
+                                <span>装备</span>
+                                <span>6小时前</span>
+                            </div>
+                            <h3 class="topic-title"><a href="#">关于新百伦574复古跑鞋的清洗与保养建议</a></h3>
+                            <div class="topic-footer">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <span>复古控</span>
+                                </div>
+                                <span>回复 23</span>
+                            </div>
+                        </article>
+                        <article class="topic-card">
+                            <div class="topic-meta">
+                                <span>话题</span>
+                                <span>8小时前</span>
+                            </div>
+                            <h3 class="topic-title"><a href="#">马拉松配速慢怎么办？前辈们有什么建议？</a></h3>
+                            <div class="topic-footer">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <span>速度控</span>
+                                </div>
+                                <span>回复 56</span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">社区公告</h4>
+                    <ul style="font-size: 14px; color: #666; padding-left: 20px; line-height: 1.8;">
+                        <li>关于论坛积分兑换规则调整的通知</li>
+                        <li>2024年度新百伦跑鞋大赛报名开启</li>
+                        <li>周末线下跑步活动报名通道</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">本周热门</h4>
+                    <ul class="hot-post-list">
+                        <li>
+                            <a href="#"><span class="hot-num">01</span> <span class="tag tag-hot">热议</span> New Balance 1906R 鞋带系统改进建议</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="hot-num">02</span> <span class="tag tag-hot">评测</span> 穿着NB 880v13 跑了500公里后的真实感受</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="hot-num">03</span> <span class="tag tag-new">求助</span> 肺部不适，求大神分析原因</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="hot-num">04</span> <span class="tag">晒单</span> 搭配指南：NB 574 搭配短裤/长裤/穿搭</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="hot-num">05</span> <span class="tag">训练</span> 爬山跑对膝盖的影响大吗？</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">热门标签</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <a href="#" class="tag tag-hot">NB 574</a>
+                        <a href="#" class="tag tag-new">NB 1906R</a>
+                        <a href="#" class="tag">减肥</a>
+                        <a href="#" class="tag">PB</a>
+                        <a href="#" class="tag">膝盖保护</a>
+                        <a href="#" class="tag">装备党</a>
+                        <a href="#" class="tag">LSD</a>
+                        <a href="#" class="tag">越野跑</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Guide Section -->
+        <section class="guide-section">
+            <div class="section-title">
+                <h2>新手入门指南</h2>
+            </div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <span class="guide-icon">👟</span>
+                    <h4>如何选鞋</h4>
+                    <p>了解足弓类型，根据跑步姿势选择缓震或支撑系跑鞋。</p>
+                </div>
+                <div class="guide-card">
+                    <span class="guide-icon">📅</span>
+                    <h4>起步计划</h4>
+                    <p>从“走跑结合”开始，循序渐进地建立跑步习惯。</p>
+                </div>
+                <div class="guide-card">
+                    <span class="guide-icon">❤️</span>
+                    <h4>心率控制</h4>
+                    <p>掌握最大心率区间，科学训练避免过度疲劳。</p>
+                </div>
+                <div class="guide-card">
+                    <span class="guide-icon">🛡️</span>
+                    <h4>伤病预防</h4>
+                    <p>拉伸放松与装备穿戴的重要性，减少跑步损伤。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>新百伦论坛</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        新百伦论坛是一个专注于跑步文化与装备交流的垂直社区。我们致力于为跑者提供专业的资讯、真实的评测和温暖的交流环境。无论你是初学者还是资深跑者，这里都有你的位置。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">社区规则</a></li>
+                        <li><a href="#">联系版主</a></li>
+                        <li><a href="#">广告合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">跑鞋评测</a></li>
+                        <li><a href="#">马拉松</a></li>
+                        <li><a href="#">装备交流</a></li>
+                        <li><a href="#">线下活动</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 新百伦论坛. All Rights Reserved. 本站内容均由用户发布，不代表本站观点。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                                                          </html>
