@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="合水天气网提供甘肃省合水县最新的实时天气预报、空气质量、生活指数及未来15天趋势。查询今日气温、降水概率及穿衣建议，助您合理安排出行。">
+    <meta name="keywords" content="合水天气,甘肃合水天气预报,合水实时天气,合水空气质量,合水生活指数">
+    <title>合水天气-甘肃合水县最新天气预报与生活指数查询</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --primary-dark: #0056b3;
+            --text-main: #333;
+            --text-secondary: #666;
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-blue);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .weather-card {
+            background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .weather-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .location-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .current-temp {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0.5rem 0;
+        }
+
+        .weather-desc {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .weather-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* AQI & Details */
+        .details-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .details-header h2 {
+            font-size: 1.25rem;
+        }
+
+        .aqi-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .aqi-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #e0f2f1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #00695c;
+            border: 4px solid #b2dfdb;
+        }
+
+        .aqi-text {
+            flex: 1;
+        }
+
+        .aqi-text h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .aqi-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+        }
+
+        .detail-value {
+            font-weight: 500;
+        }
+
+        /* Forecast Section */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 24px;
+            background-color: var(--primary-blue);
+            border-radius: 3px;
+        }
+
+        .forecast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .forecast-card {
+            background: var(--bg-card);
+            padding: 1.5rem 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .forecast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .f-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .f-icon {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+        }
+
+        .f-temp {
+            font-weight: 600;
+        }
+
+        .f-high {
+            color: var(--primary-dark);
+        }
+
+        .f-low {
+            color: var(--text-secondary);
+        }
+
+        /* Guide / Advice Section */
+        .guide-section {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .guide-list {
+            list-style: none;
+        }
+
+        .guide-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-item:last-child {
+            border-bottom: none;
+        }
+
+        .guide-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e3f2fd;
+            color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .guide-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .guide-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19c0-3.037-2.463-5.5-5.5-5.5S6.5 15.963 6.5 19"/><path d="M12 13.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M3 12a9 9 0 0 1 18 0"/></svg>
+                <span>合水天气</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">15天预报</a></li>
+                    <li><a href="#">生活指数</a></li>
+                    <li><a href="#">雷达图</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: Current Weather -->
+        <section class="hero-section">
+            <div class="weather-card">
+                <div class="location-badge">甘肃省 · 庆阳市 · 合水县</div>
+                <div class="current-temp">12°C</div>
+                <div class="weather-desc">多云转晴</div>
+                <div class="weather-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">体感温度</span>
+                        <span>10°C</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">湿度</span>
+                        <span>45%</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">风向/风力</span>
+                        <span>东北风 3级</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">气压</span>
+                        <span>1012 hPa</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-card">
+                <div class="details-header">
+                    <h2>空气质量与生活指数</h2>
+                    <span style="font-size: 0.8rem; color: #999;">更新于 10:00</span>
+                </div>
+                
+                <div class="aqi-container">
+                    <div class="aqi-circle">
+                        <span>35</span>
+                        <span style="font-size: 0.7rem; font-weight: normal;">优</span>
+                    </div>
+                    <div class="aqi-text">
+                        <h3>空气质量：优</h3>
+                        <p>空气清新，适宜户外活动，极少数敏感人群应减少户外活动。</p>
+                    </div>
+                </div>
+
+                <div class="grid-4">
+                    <div class="detail-item">
+                        <span class="detail-label">紫外线强度</span>
+                        <span class="detail-value">弱</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">穿衣建议</span>
+                        <span class="detail-value">舒适</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">洗车指数</span>
+                        <span class="detail-value">适宜</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">感冒概率</span>
+                        <span class="detail-value">低</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">运动指数</span>
+                        <span class="detail-value">适宜</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">旅游指数</span>
+                        <span class="detail-value">较适宜</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">晾晒指数</span>
+                        <span class="detail-value">适宜</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">雨伞指数</span>
+                        <span class="detail-value">无需</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-Day Forecast -->
+        <section>
+            <h2 class="section-title">未来7天预报</h2>
+            <div class="forecast-grid">
+                <div class="forecast-card">
+                    <div class="f-date">今天</div>
+                    <div class="f-icon">⛅</div>
+                    <div class="f-temp">
+                        <span class="f-high">14°</span> / <span class="f-low">3°</span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="f-date">明天</div>
+                    <div class="f-icon">☀️</div>
+                    <div class="f-temp">
+                        <span class="f-high">16°</span> / <span class="f-low">5°</span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="f-date">周三</div>
+                    <div class="f-icon">☀️</div>
+                    <div class="f-temp">
+                        <span class="f-high">17°</span> / <span class="f-low">6°</span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="f-date">周四</div>
+                    <div class="f-icon">☁️</div>
+                    <div class="f-temp">
+                        <span class="f-high">15°</span> / <span class="f-low">4°</span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="f-date">周五</div>
+                    <div class="f-icon">🌧️</div>
+                    <div class="f-temp">
+                        <span class="f-high">12°</span> / <span class="f-low">4°</span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="f-date">周六</div>
+                    <div class="f-icon">🌧️</div>
+                    <div class="f-temp">
+                        <span class="f-high">11°</span> / <span class="f-low">3°</span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="f-date">周日</div>
+                    <div class="f-icon">⛅</div>
+                    <div class="f-temp">
+                        <span class="f-high">13°</span> / <span class="f-low">4°</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel & Weather Guide -->
+        <section class="guide-section">
+            <h2 class="section-title">出行与生活指南</h2>
+            <ul class="guide-list">
+                <li class="guide-item">
+                    <div class="guide-icon">🎒</div>
+                    <div class="guide-content">
+                        <h3>今日出行建议</h3>
+                        <p>合水县今日天气多云转晴，气温适中，空气质量优良。适合进行户外徒步、骑行或前往周祖陵景区游览。早晚温差较大，建议携带薄外套。</p>
+                    </div>
+                </li>
+                <li class="guide-item">
+                    <div class="guide-icon">🧥</div>
+                    <div class="guide-content">
+                        <h3>穿衣指南</h3>
+                        <p>当前气温较低，建议穿着长袖衬衫或薄毛衣，搭配风衣或夹克。早晚外出需注意保暖，避免受凉感冒。</p>
+                    </div>
+                </li>
+                <li class="guide-item">
+                    <div class="guide-icon">⚠️</div>
+                    <div class="guide-content">
+                        <h3>农业与农业气象</h3>
+                        <p>近期无明显降水，土壤墒情一般。建议农民朋友做好农田防旱准备，适时灌溉，保障冬小麦正常生长。</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于合水天气</h4>
+                <p style="font-size: 0.9rem; color: #bdc3c7; line-height: 1.8;">
+                    本站致力于为甘肃省合水县及周边地区提供最精准、最及时的气象服务。数据来源于气象局官方监测，仅供参考。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>常用链接</h4>
+                <ul>
+                    <li><a href="#">全国天气</a></li>
+                    <li><a href="#">庆阳天气</a></li>
+                    <li><a href="#">空气质量监测</a></li>
+                    <li><a href="#">雷达回波图</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务条款</h4>
+                <ul>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">数据来源说明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 合水天气网. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+  </html>
